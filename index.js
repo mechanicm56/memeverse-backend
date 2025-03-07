@@ -22,6 +22,6 @@ app.use(express.static('public'))
 // routes
 app.use('/api', Routes);
 
-app.listen(process.env.PORT, () => {
+app.listen(4000, () => {
     console.log("SERVER RUNNING ON PORT: " + process.env.PORT)
 })
