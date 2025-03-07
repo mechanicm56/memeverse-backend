@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const Routes = require('./routes');
 
 // configure database 
-mongoose.connect(`${process.env.MONGO_CONNECTION}/${process.env.MONGODB_NAME}`)
+mongoose.connect(`${process.env.MONGO_CONNECTION}`)
 .then(() => [
     console.log("Database connected successfully")
 ])
