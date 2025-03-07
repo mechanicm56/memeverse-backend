@@ -2,14 +2,12 @@ const express = require('express');
 const router = express.Router()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
-const multer = require('multer')
 const UserModel = require('../models/user.model');
 const cloudinary = require('../utils/cloudinary');
 const userController = require('../controllers/user.controller');
 
 // middleware 
 const { authenticateToken } = require('../middlewares/authware');
-const { imageUpload, singleUpload } = require('../middlewares/useMulter');
 const { getDataUri } = require('../utils/dataURI');
 
 // get single account data 
@@ -55,7 +53,7 @@ router.patch('/update-account/:id', authenticateToken, async (req, res) => {
 })
 
 // uploading header video 
-router.patch('/upload-video/:id', singleUpload, async (req, res) => {
+router.patch('/upload-video/:id', async (req, res) => {
     const { id } = req.params;
     const file = req.file;
     try {
